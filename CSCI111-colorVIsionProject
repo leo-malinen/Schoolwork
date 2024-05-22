@@ -1,0 +1,233 @@
+#include <iostream>
+#include <vector>
+#include <array>
+#include <fstream>
+using namespace std;
+
+void blindnessSelection(string &help) {
+  if (help == "y" || help == "Y") {
+    cout << "Choose between protanopia, deuteranopia, or tritanopia to continue.\n";
+    cout << "Protanopia is the blindness to the red color.\n";
+    cout << "Deuteranopia is the insensitivity to the green color.\n";
+    cout << "Protanopia is the insensitivity to the blue and yellow color.\n";
+  } else {
+    cout << "Error" << endl;
+  }
+}
+
+//function to filter out the base colors of each colorblindness type
+string basecolorSelection(string &basecolor) {
+  if (basecolor == "red" || basecolor == "Red") {
+  return basecolor;
+  } else if (basecolor == "orange" || basecolor == "Orange") {
+  return basecolor;
+  } else if (basecolor == "yellow" || basecolor == "Yellow") {
+  return basecolor;    
+  } else if (basecolor == "green" || basecolor == "Green") {
+  return basecolor;    
+  } else if (basecolor == "blue" || basecolor == "Blue") {
+  return basecolor;    
+  } else if (basecolor == "purple" || basecolor == "Purple" || basecolor == "violet") {
+  return basecolor;    
+  } else {
+    basecolor = "ERROR";
+    return basecolor;
+  }
+}
+
+//protanopia, deuteranopia, and tritanopia colors are now moved to different files
+
+
+//if the colorblindness function is true
+bool isColorblindSelection(string selection) {
+  if (selection.size() > 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+int main() {
+// declare variables/colors
+string colorblindnessType;
+string colorInput;
+vector<string> resultList;
+string help;
+//fstream
+fstream file;
+string filename;
+string line;
+//base color passerby variables
+string basecolor;
+
+
+//string listColors[6] = {"colorOne", "colorTwo", "colorThree", "colorFour", "colorFive", "colorSix"};
+
+//welcome message
+cout << "Welcome to the color picker! be sure to input your base color below:\n";
+//do while for the color scheme
+do {
+  cout << "You will now need to chose a colorblindness type." << endl;
+  cout << "Do you need help? (Y for yes, N for no)" << endl;
+  cin >> help;
+  if (help == "y" || help == "Y" && help != "stop" && help != "Stop") {
+    blindnessSelection(help);
+  } else if (help == "n" || help == "N") {
+  cout << "Please choose a type of colorblindness." << endl;
+  cin >> colorblindnessType; 
+  
+   if (colorblindnessType == "protanopia" || colorblindnessType == "Protanopia") {
+    resultList.push_back(colorInput);
+    cout << "Please choose a base color for this colorblindness type." << endl;
+    cin >> basecolor;
+    basecolorSelection(basecolor);    
+    file.open("protanopia.txt", fstream::in);
+    cout << "The base color you have chosen is: " << basecolor << endl;
+    if (basecolor == "red" || basecolor == "Red") {
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "orange" || basecolor == "Orange") {
+      //GotoLine(file, 8);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "yellow" || basecolor == "Yellow") {
+      //GotoLine(file, 15);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "green" || basecolor == "Green") {
+      //GotoLine(file, 22);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "blue" || basecolor == "Blue") {
+      //GotoLine(file, 29);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "purple" || basecolor == "Purple" || basecolor == "violet") {
+      //GotoLine(file, 36);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    }
+     
+  } else if (colorblindnessType == "deuteranopia" || colorblindnessType == "Deuteranopia"){
+  resultList.push_back(colorInput);
+  cout << "Please choose a base color for this colorblindness type." << endl;
+  cin >> basecolor;
+  basecolorSelection(basecolor);    
+  file.open("deuteranopia.txt", fstream::in);
+    cout << "The base color you have chosen is: " << basecolor << endl;
+    if (basecolor == "red" || basecolor == "Red") {
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "orange" || basecolor == "Orange") {
+      //GotoLine(file, 8);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "yellow" || basecolor == "Yellow") {
+      //GotoLine(file, 15);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "green" || basecolor == "Green") {
+      //GotoLine(file, 22);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "blue" || basecolor == "Blue") {
+      //GotoLine(file, 29);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "purple" || basecolor == "Purple" || basecolor == "violet") {
+      //GotoLine(file, 36);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    }
+
+  } else if (colorblindnessType == "tritanopia" || colorblindnessType == "Tritanopia"){
+  resultList.push_back(colorInput);
+  cout << "Please choose a base color for this colorblindness type." << endl;
+  cin >> basecolor;
+  basecolorSelection(basecolor);    
+  file.open("tritanopia.txt", fstream::in);
+    cout << "The base color you have chosen is: " << basecolor << endl;
+    if (basecolor == "red" || basecolor == "Red") {
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "orange" || basecolor == "Orange") {
+      //GotoLine(file, 8);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "yellow" || basecolor == "Yellow") {
+      //GotoLine(file, 15);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "green" || basecolor == "Green") {
+      //GotoLine(file, 22);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "blue" || basecolor == "Blue") {
+      //GotoLine(file, 29);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    } else if (basecolor == "purple" || basecolor == "Purple" || basecolor == "violet") {
+      //GotoLine(file, 36);
+      for (int i = 0; i < 8; i++) {
+       getline(file, line);
+       cout << line << endl;
+      }
+    }
+  
+  } else if (colorblindnessType != "stop" && !(colorblindnessType == "protanopia" || colorblindnessType == "Protanopia" || colorblindnessType == "deuteranopia" || colorblindnessType == "Deuteranopia" || colorblindnessType == "tritanopia" || colorblindnessType == "Tritanopia")){
+  cout << "'" << colorblindnessType << "'" << " is not a colorblindness type. Please try again" << endl;
+ }
+//check to see if anything was chosen if so list user input
+if (isColorblindSelection(colorblindnessType) && colorblindnessType != "stop" && colorblindnessType != "Stop") {
+  cout << "Your colorblindness type you have chosen to input is: " << endl;
+    cout << colorblindnessType << endl;
+  } else if (!(isColorblindSelection(colorblindnessType)) && colorblindnessType != "stop" && colorblindnessType != "Stop" ){
+  cout << "You have not chosen to input any colorblindness type. Try again if you wanted to." << endl;
+  }
+//cout << "You chose to search the colorblindness type: " << resultList.end() << endl;
+}
+
+} while (colorblindnessType != "stop"  && colorblindnessType != "Stop" && help != "stop" && help != "Stop");
+
+cout << "Thank you for using the color picker!" << endl;
+
+  return 0;
+}
+
+//base colors: red, orange, yellow, green, blue, violet
+//types of colorblindness: protanopia, deutranopia, tritanopia, (monochromacy)
+//Designer: given base color, list 6 (hexes) colors output for palate
